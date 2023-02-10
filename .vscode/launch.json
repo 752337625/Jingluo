@@ -1,0 +1,14 @@
+// 启动调试配置项，可查看官网
+{
+	"version": "1.0.0",
+	"configurations": [
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "Btigade Direct System",
+			"url": "https://localhost:3100/byl",
+			"webRoot": "${workspaceFolder}/src",
+			"sourceMaps": true
+		}
+	]
+}
