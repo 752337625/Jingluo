@@ -6,7 +6,8 @@
 	"version": "1.0.0",
 	"author": {
 		"name": "𝓜𝓻. 𝓦𝓪𝓷𝓰",
-		"email": "15536300457@163.com"
+		"email": "15536300457@163.com",
+		"blog": "https://www.luosifa.top/blog/"
 	},
 	"license": "MIT",
 	"repository": {
@@ -17,96 +18,45 @@
 		"url": "https://github.com/752337625/Jingluo.git/issues"
 	},
 	"engines": {
-		"node": ">=12"
+		"node": ">= 14"
 	},
 	"scripts": {
-		"lint:lint-staged": "lint-staged",
+		"cz": "czg",
 		"prepare": "husky install",
 		"bootstrap": "pnpm install",
-		"lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-		"lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
-		"clean:lib": "rimraf -rf **/node_modules",
-		"clean:cache": "rimraf -rf **/node_modules/.cache/ && rimrafn -rf **/node_modules/.vite",
-		"reinstall": "rimraf -rf **/pnpm-lock.yaml && rimraf -rf **/package.lock.json && rimraf -rf **/node_modules && pnpm run bootstrap",
-		"wanda-template:bootstrap": "pnpm -F wanda-template bootstrap",
-		"wanda-template:serve": "pnpm -F wanda-template serve",
-		"wanda-template:build": "pnpm -F wanda-template build",
-		"wanda-template:build:test": "pnpm -F wanda-template build:test",
-		"wanda-template:build:no-cache": "pnpm -F wanda-template build:no-cache",
-		"wanda-template:report": "pnpm -F wanda-template report",
-		"wanda-template:preview": "pnpm -F wanda-template preview",
-		"wanda-template:preview:dist": "pnpm -F wanda-template preview:dist",
-		"wanda-blog:bootstrap": "pnpm -F wanda-blog bootstrap",
-		"wanda-blog:serve": "pnpm -F wanda-blog serve",
-		"wanda-blog:build": "pnpm -F wanda-blog build",
-		"wanda-blogserver:bootstrap": "pnpm -F wanda-blogserver bootstrap",
-		"wanda-blogserver:serve": "pnpm -F wanda-blogserver serve",
-		"wanda-blogserver:build": "pnpm -F wanda-blogserver build",
-		"wanda-blogserver:test": "pnpm -F wanda-blogserver test"
+		"clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+		"clean:dist": "rimraf dist",
+		"lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+		"lint:fix": "pnpm run lint --fix"
 	},
-	"dependencies": {
-		"@iconify/iconify": "^2.2.1",
-		"@purge-icons/generated": "^0.8.1",
-		"axios": "^0.26.1",
-		"crypto-js": "^4.1.1",
-		"dayjs": "^1.11.5",
-		"lodash-es": "^4.17.21",
-		"nprogress": "^0.2.0",
-		"qs": "^6.10.3"
-	},
+	"dependencies": {},
 	"devDependencies": {
-		"@commitlint/cli": "^16.2.3",
-		"@commitlint/config-conventional": "^16.2.1",
-		"@iconify/json": "^2.1.82",
-		"@types/crypto-js": "^4.1.1",
-		"@types/lodash-es": "^4.17.6",
-		"@types/node": "^17.0.25",
-		"@types/nprogress": "^0.2.0",
-		"@types/qs": "^6.9.7",
+		"npm-run-all": "^4.1.5",
+		"fast-glob": "^3.2.11",
+		"@esbuild-kit/cjs-loader": "^2.2.1",
+		"@commitlint/cli": "^17.0.3",
+		"@commitlint/config-conventional": "^17.0.3",
 		"@typescript-eslint/eslint-plugin": "^5.30.6",
 		"@typescript-eslint/parser": "^5.20.0",
-		"autoprefixer": "^10.3.7",
-		"cross-env": "^7.0.3",
+		"cz-git": "^1.3.8",
+		"czg": "^1.3.8",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.3",
+		"rimraf": "^3.0.2",
 		"eslint": "^8.13.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-prettier": "^4.0.0",
 		"eslint-plugin-vue": "^8.6.0",
-		"esno": "^0.14.1",
-		"husky": "^7.0.4",
-		"less": "^4.1.2",
-		"lint-staged": "12.3.7",
-		"postcss": "^8.4.12",
-		"postcss-html": "^1.4.1",
-		"postcss-less": "^6.0.0",
-		"postcss-sorting": "^7.0.1",
-		"postcss-utilities": "^0.8.4",
 		"prettier": "^2.7.1",
-		"rimraf": "^3.0.2",
-		"ts-node": "^10.7.0",
-		"typescript": "^4.6.4",
-		"vue-eslint-parser": "^8.3.0",
-		"vue-tsc": "^0.38.4"
+		"typescript": "^4.6.4"
 	},
 	"lint-staged": {
-		"*.{js,jsx,ts,tsx}": [
+		"*.{vue,js,ts,jsx,tsx,md,json}": [
 			"eslint  --max-warnings 0 --fix",
 			"prettier --write"
 		],
-		"{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
-			"prettier --write--parser json"
-		],
-		"package.json": [
-			"prettier --write"
-		],
-		"*.vue": [
-			"eslint --fix",
-			"prettier --write"
-		],
 		"*.{scss,less,styl,html}": [
-			"prettier --write"
-		],
-		"*.md": [
 			"prettier --write"
 		]
 	}

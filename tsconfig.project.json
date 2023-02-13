@@ -1,0 +1,21 @@
+{
+	"extends": "./tsconfig.web.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"noLib": false,
+		"forceConsistentCasingInFileNames": true,
+		"strictFunctionTypes": false,
+		"noUnusedParameters": true,
+		"experimentalDecorators": true,
+		"useDefineForClassFields": true,
+		"isolatedModules": true,
+		"removeComments": true
+	},
+	"include": [
+		// playground
+		"project/main.ts",
+		"project/env.d.ts",
+		"project/src/**/*"
+		//如何使用了其他项目中的ts变量,需要引入
+	]
+}
