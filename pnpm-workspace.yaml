@@ -3,4 +3,4 @@ packages:
   - docs
   - play
   - project
-  - blog
+  - blog/*

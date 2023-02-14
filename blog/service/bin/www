@@ -1,0 +1,105 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+let { server_port, env } = require('../blog.handler/configHandler');
+let app = require('../app');
+// let debug = require('debug')('whw-blogserver:server');
+let fs = require('fs');
+let path = require('path');
+let http = require('http');
+let https = require('https');
+let { Server } = require('socket.io');
+
+/*app.all("*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-type");
+  res.header( "Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS,PATCH");
+  res.header("Content-Type", "application/json;charset=utf-8");
+  res.header('Access-Control-Allow-Credentials', 'true');//和客户端对应，必须设置以后，才能接收cookie.
+  next();
+});*/
+
+let option = {
+	key: fs.readFileSync(path.join(__dirname, '../ssl/www.luosifa.top.key')),
+	cert: fs.readFileSync(path.join(__dirname, '../ssl/www.luosifa.top.pem')),
+};
+let port = server_port || '9098';
+app.set('port', port);
+let httpsServer = '';
+if (env !== 'development') {
+	httpsServer = https.createServer(option, app).listen(port, function () {
+		console.log('HTTPS Server is running', port);
+	});
+} else {
+	httpsServer = http.createServer(app).listen(port, function () {
+		console.log('HTTP Server is running', port);
+	});
+}
+const ioHttps = new Server(httpsServer, {});
+let users = [];
+ioHttps.on('connection', function (socket) {
+	socket.on('UserId', function (data) {
+		let flag = users.some(i => i.id === data.id);
+		if (flag) {
+			users = users.filter(i => {
+				if (i.id !== data.id) return i;
+				i.name = data.name;
+				return i;
+			});
+		} else {
+			users.push(data);
+		}
+		ioHttps.emit('Users', users);
+	});
+	socket.on('LocalCandidate', function (data) {
+		socket.broadcast.emit('RemoteCandidateFn', data);
+	});
+	socket.on('LocalDescription', function (data) {
+		socket.broadcast.emit('RemoteDescriptionFn', data);
+	});
+	socket.on('RemoteCandidate', function (data) {
+		socket.broadcast.emit('LocalCandidateFn', data);
+	});
+	socket.on('RemoteDescription', function (data) {
+		socket.broadcast.emit('LocalDescriptionFn', data);
+	});
+	socket.on('Answer', () => {
+		socket.broadcast.emit('createAnswer');
+	});
+	socket.on('disconnect', () => {
+		users = users.filter(i => {
+			return i.socket !== socket.id;
+		});
+		ioHttps.emit('Users', users);
+	});
+	// setInterval(() => {
+	// 	ioHttps.emit('Users', users);
+	// }, 1000);
+});
+// ioHttps.on('connection', function (socket) {
+// 	// socket.emit('Users', users);
+// 	socket.on('UserId', function (data) {
+// 		users.push(data);
+// 		ioHttps.emit('Users', users);
+// 	});
+// 	socket.on('LocalCandidate', function (data) {
+// 		socket.broadcast.emit('RemoteCandidateFn', data);
+// 	});
+// 	socket.on('LocalDescription', function (data) {
+// 		socket.broadcast.emit('RemoteDescriptionFn', data);
+// 	});
+// 	socket.on('RemoteCandidate', function (data) {
+// 		socket.broadcast.emit('LocalCandidateFn', data);
+// 	});
+// 	socket.on('RemoteDescription', function (data) {
+// 		socket.broadcast.emit('LocalDescriptionFn', data);
+// 	});
+// 	socket.on('Answer', () => {
+// 		socket.broadcast.emit('createAnswer');
+// 	});
+// 	setInterval(() => {
+// 		ioHttps.emit('Users', users);
+// 	}, 1000);
+// });
