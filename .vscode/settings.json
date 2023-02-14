@@ -1,10 +1,7 @@
 {
 	//设置默认行为
-	"typescript.tsdk": "./node_modules/typescript/lib",
 	"npm.packageManager": "pnpm",
-	"editor.formatOnSave": false,
-	"editor.tabSize": 2,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
 	"files.eol": "\n",
 	"files.exclude": {
 		"**/.cache": true,
@@ -29,50 +26,28 @@
 		"**/dist/**": true,
 		"**/yarn.lock": true
 	},
-	//stylelint代码自动检查相关配置 全部取消
-	// "css.validate": false, //取消css校验采用styleLine进行代码检测
-	// "less.validate": false, //取消less校验采用styleLine进行代码检测
-	// "scss.validate": false, //取消scss校验采用styleLine进行代码检测
-	// "stylelint.enable": true, //关闭开启stylelint 插件
-	// "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"],
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-
-	"[less]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[scss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[markdown]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
-	},
-	"[vue]": {
-		"editor.codeActionsOnSave": {
-			"source.fixAll.eslint": true,
-			"source.fixAll.stylelint": true
-		},
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
+	"eslint.probe": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"vue",
+		"markdown",
+		"json",
+		"jsonc"
+	],
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"vue",
+		"markdown",
+		"json",
+		"jsonc"
+	],
 	"i18n-ally.localesPaths": ["src/locales", "src/locales/lang"],
 	"i18n-ally.keystyle": "nested",
 	"i18n-ally.sortKeys": true,
@@ -81,7 +56,7 @@
 	"i18n-ally.enabledParsers": ["ts"],
 	"i18n-ally.sourceLanguage": "en",
 	"i18n-ally.displayLanguage": "zh-CN",
-	"i18n-ally.enabledFrameworks": ["vue", "react"],
+	"i18n-ally.enabledFrameworks": ["vue", "react", "vue-sfc"],
 	"search.exclude": {
 		"**/node_modules": true,
 		"**/*.log": true,

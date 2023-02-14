@@ -2,17 +2,12 @@
 	// 扩展vscode插件推荐
 	"recommendations": [
 		"vue.volar",
-		"voorjaar.windicss-intellisense",
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
-		"mrmlnc.vscode-less",
-		"lokalise.i18n-ally",
+		"antfu.vite",
 		"antfu.iconify",
-		"mikestead.dotenv",
-		"heybourn.headwind",
-		"vscode-icons-team.vscode-icons",
-		"shd101wyy.markdown-preview-enhanced",
-		"jingwang37.element-plus-snippets",
-		"hollowtree.vue-snippets"
+		"lokalise.i18n-ally",
+		"voorjaar.windicss-intellisense",
+		"jingwang37.element-plus-snippets"
 	]
 }
