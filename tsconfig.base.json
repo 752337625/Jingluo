@@ -14,12 +14,9 @@
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
 		"removeComments": false,
-
-		"types": []
-		// 全局变量
-		// "paths": {
-		// 	"@jingluo/*": ["packages/*"]
-		// }
-	},
-	"exclude": ["node_modules", "dist", "**/*.js"]
+		"types": [],
+		"paths": {
+			"@jingluo-plus/*": ["packages/*"]
+		}
+	}
 }

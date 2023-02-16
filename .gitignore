@@ -22,7 +22,9 @@ lerna-debug.log*
 dist-ssr
 dist
 *.zip
-
+components.d.ts
+auto-imports.d.ts
+.eslintrc-auto-import.json
 
 # local env files
 *.local

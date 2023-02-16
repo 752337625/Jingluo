@@ -1,0 +1,9 @@
+{
+	"name": "@jingluo/project",
+	"description": "vite项目工程",
+	"private": true,
+	"version": "1.0.0",
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {}
+}

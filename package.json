@@ -27,7 +27,10 @@
 		"clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
 		"clean:dist": "rimraf dist",
 		"lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
-		"lint:fix": "pnpm run lint --fix"
+		"lint:fix": "pnpm run lint --fix",
+		"client": "pnpm run -C  blog/client  serve",
+		"client:build": "pnpm run -C  blog/client  build",
+		"service": "pnpm run -C  blog/service  serve"
 	},
 	"dependencies": {},
 	"devDependencies": {
