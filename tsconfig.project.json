@@ -1,6 +1,7 @@
 {
 	"extends": "./tsconfig.web.json",
 	"compilerOptions": {
+		"noEmit": true,
 		"allowJs": true,
 		"noLib": false,
 		"forceConsistentCasingInFileNames": true,
@@ -8,14 +9,14 @@
 		"noUnusedParameters": true,
 		"experimentalDecorators": true,
 		"useDefineForClassFields": true,
-		"isolatedModules": true,
-		"removeComments": true
+		"isolatedModules": true
 	},
 	"include": [
-		// playground
-		"project/main.ts",
-		"project/env.d.ts",
-		"project/src/**/*"
+		"project/**/*.ts",
+		"project/**/*.d.ts",
+		"project/**/*.tsx",
+		"project/**/*.vue",
+		"project/vite.config.ts"
 		//如何使用了其他项目中的ts变量,需要引入
 	]
 }

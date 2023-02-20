@@ -1,6 +1,8 @@
-/dist/*
+/.vscode/**
+/.husky/**
+/.github/**
+/dist/**
 .local
-.output.js
 /node_modules/**
 /doc/**
 **/*.svg
