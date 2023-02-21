@@ -4,3 +4,4 @@ packages:
   - play
   - project
   - blog/*
+  - api/*
