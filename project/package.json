@@ -60,5 +60,6 @@
 		"vite-plugin-theme": "^0.8.6",
 		"vite-plugin-vue-setup-extend": "^0.4.0",
 		"vite-plugin-windicss": "^1.8.10"
-	}
+	},
+	"optionalDependencies": {}
 }
