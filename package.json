@@ -21,13 +21,14 @@
 		"node": ">= 14"
 	},
 	"scripts": {
-		"cz": "czg",
+		"add": "git add .",
+		"commit": "czg",
 		"prepare": "husky install",
 		"outdated": "concurrently \"pnpm outdated\" \"pnpm run -C  project outdated\"",
 		"clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
 		"clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
 		"clean:dist": "rimraf dist",
-		"lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+		"lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json --max-warnings 0 --cache",
 		"lint:fix": "pnpm run lint --fix",
 		"format": "prettier --write --cache .",
 		"client": "pnpm run -C  blog/client  serve",
@@ -39,7 +40,7 @@
 		"project:report": "pnpm run -F @jingluo/project report",
 		"project:build": "pnpm run -C project build",
 		"project:preview": "pnpm run -C project build",
-		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json  && npm run bootstrap"
+		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json  && pnpm install"
 	},
 	"devDependencies": {
 		"@esbuild-kit/cjs-loader": "^2.2.1",

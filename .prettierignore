@@ -1,10 +1,11 @@
-/.vscode/**
-/.husky/**
-/.github/**
-/dist/**
+.vscode
+.husky
+.github
+.temp
+.cache
 .local
+dist
 /node_modules/**
 /doc/**
 **/*.svg
 **/*.sh
-

@@ -8,4 +8,4 @@ tag:
   - 插件
 ---
 
-# .nvmrc文件
+# .nvmrc 文件
