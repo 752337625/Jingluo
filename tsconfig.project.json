@@ -16,7 +16,7 @@
 		"project/**/*.d.ts",
 		"project/**/*.tsx",
 		"project/**/*.vue",
-		"project/vite.config.ts"
+		"vite.config.ts"
 		//如何使用了其他项目中的ts变量,需要引入
 	]
 }
