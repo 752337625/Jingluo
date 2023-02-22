@@ -1,6 +1,7 @@
 {
 	"name": "@jingluo/utils",
 	"private": true,
+	"type": "module",
 	"main": "index.ts",
 	"scripts": {
 		"outdated": "pnpm outdated",
