@@ -11,5 +11,5 @@
 		"useDefineForClassFields": true,
 		"isolatedModules": true
 	},
-	"include": ["api/**/*.ts", "api/**/*.d.ts"]
+	"include": ["utils/**/*.ts", "utils/**/*.d.ts"]
 }

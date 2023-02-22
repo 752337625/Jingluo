@@ -1,0 +1,10 @@
+{
+	"name": "@jingluo/utils",
+	"private": true,
+	"main": "index.ts",
+	"scripts": {
+		"outdated": "pnpm outdated",
+		"update": "pnpm update"
+	},
+	"devDependencies": {}
+}

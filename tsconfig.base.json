@@ -15,8 +15,6 @@
 		"esModuleInterop": true,
 		"removeComments": false,
 		"types": [],
-		"paths": {
-			"@jingluo-plus/*": ["packages/*"]
-		}
+		"paths": {}
 	}
 }

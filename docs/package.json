@@ -5,6 +5,7 @@
 		"serve": "vuepress dev src",
 		"build": "vuepress build src"
 	},
-	"dependencies": {},
-	"devDependencies": {}
+	"devDependencies": {
+		"esno": "^0.16.3"
+	}
 }

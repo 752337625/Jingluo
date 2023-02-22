@@ -1,7 +1,8 @@
 packages:
-  - packages/*
+  - packages/**
   - docs
   - play
   - project
-  - blog/*
-  - api/*
+  - blog
+  - api
+  - utils

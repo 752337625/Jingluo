@@ -6,8 +6,5 @@
 		"types": ["node"],
 		"skipLibCheck": true
 	},
-	"include": [
-		"scripts/**/*"
-		//如何使用了其他项目中的ts变量,需要引入
-	]
+	"include": ["scripts/**/*.ts", "scripts/**/*.d.ts"]
 }

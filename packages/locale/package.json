@@ -7,5 +7,8 @@
 	"module": "index.ts",
 	"unpkg": "index.js",
 	"jsdelivr": "index.js",
-	"types": "index.d.ts"
+	"types": "index.d.ts",
+	"devDependencies": {
+		"esno": "^0.16.3"
+	}
 }
