@@ -50,7 +50,8 @@
 		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json  && pnpm install",
 		"changeset": "changeset",
 		"update:version": "changeset version",
-		"release": "changeset publish"
+		"release": "changeset publish",
+		"init": "changeset init"
 	},
 	"config": {
 		"commitizen": {
