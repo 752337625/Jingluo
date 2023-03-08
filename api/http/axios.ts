@@ -5,6 +5,8 @@ import { ContentTypeEnum } from '../enums/httpEnum';
 import { deepMerge } from '@jingluo/utils';
 import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform';
 import { DefHttp } from './DefHttp';
+import { getToken } from '@jingluo/utils';
+
 /**
  * @description: 数据处理，方便区分多种处理方式
  */
@@ -31,7 +33,14 @@ const transform: AxiosTransform = {
 		config: InternalAxiosRequestConfig,
 		options: CreateAxiosOptions,
 	): InternalAxiosRequestConfig => {
-		console.log(options);
+		// 请求之前处理config
+		const token = getToken();
+		if (token && (config as Recordable)?.requestOptions?.withToken !== false) {
+			// jwt token
+			(config as Recordable).headers.Authorization = options.authenticationScheme
+				? `${options.authenticationScheme} ${token}`
+				: token;
+		}
 		return config;
 	},
 	/**

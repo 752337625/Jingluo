@@ -16,3 +16,4 @@ scripts
 bin
 Dockerfile
 node_modules
+*-lock.yaml

@@ -20,7 +20,12 @@
 	"engines": {
 		"node": ">= 14"
 	},
+	"files": [
+		"dist",
+		"README.md"
+	],
 	"scripts": {
+		"preinstall": "npx only-allow pnpm",
 		"add": "git add .",
 		"commit": "czg",
 		"prepare": "husky install",

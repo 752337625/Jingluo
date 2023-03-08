@@ -9,3 +9,4 @@ dist
 /doc/**
 **/*.svg
 **/*.sh
+pnpm-lock.yaml
