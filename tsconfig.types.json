@@ -1,0 +1,9 @@
+{
+	"extends": "./tsconfig.web.json",
+	"compilerOptions": {
+		"outDir": "./dist/src",
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"noEmit": false
+	}
+}

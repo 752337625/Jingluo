@@ -31,6 +31,7 @@
 		"prepare": "husky install",
 		"outdated": "concurrently \"pnpm outdated\" \"pnpm run -C  project outdated\" \"pnpm run -C  api outdated\"  \"pnpm run -C  utils outdated\"",
 		"update": "concurrently \"pnpm update\" \"pnpm run -C  project update\" \"pnpm run -C  api update\" \"pnpm run -C  utils update\"",
+		"clear": "rimraf 'packages/*/{dist,node_modules}' && rimraf node_modules",
 		"clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
 		"clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
 		"clean:dist": "rimraf dist",
@@ -46,15 +47,31 @@
 		"project:report": "pnpm run -F @jingluo/project report",
 		"project:build": "pnpm run -C project build",
 		"project:preview": "pnpm run -C project build",
-		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json  && pnpm install"
+		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json  && pnpm install",
+		"changeset": "changeset",
+		"update:version": "changeset version",
+		"release": "changeset publish"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	},
 	"dependencies": {
 		"@jingluo/utils": "workspace:*",
 		"lodash-es": "^4.17.21"
 	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"tag": "beta",
+		"access": "public"
+	},
 	"devDependencies": {
+		"@changesets/cli": "^2.26.0",
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
+		"commitizen": "^4.2.6",
+		"cz-conventional-changelog": "^3.3.0",
 		"@esbuild-kit/cjs-loader": "^2.2.1",
 		"@types/lodash-es": "^4.17.6",
 		"@types/node": "*",
@@ -86,8 +103,8 @@
 	},
 	"lint-staged": {
 		"*.{vue,js,ts,jsx,tsx,json}": [
-			"eslint --fix",
-			"prettier --write"
+			"prettier --write",
+			"eslint --fix"
 		]
 	}
 }
