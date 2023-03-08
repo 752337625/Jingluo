@@ -48,15 +48,11 @@
 		"project:build": "pnpm run -C project build",
 		"project:preview": "pnpm run -C project build",
 		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json  && pnpm install",
+		"login": "pnpm login --registry https://registry.npmjs.org/",
+		"init": "changeset init",
 		"changeset": "changeset",
 		"update:version": "changeset version",
-		"release": "changeset publish",
-		"init": "changeset init"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
+		"release": "changeset publish"
 	},
 	"dependencies": {
 		"@jingluo/utils": "workspace:*",
@@ -71,8 +67,6 @@
 		"@changesets/cli": "^2.26.0",
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
-		"commitizen": "^4.2.6",
-		"cz-conventional-changelog": "^3.3.0",
 		"@esbuild-kit/cjs-loader": "^2.2.1",
 		"@types/lodash-es": "^4.17.6",
 		"@types/node": "*",
